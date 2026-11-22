@@ -160,6 +160,14 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
   .lh{padding-top:0}
 }
   #varseg[hidden]{display:none}
+.sheet{position:relative}
+.sheet .endbar{stroke:#E5484D; stroke-width:3}
+.sheet .endtx{fill:#C2272D; font-size:12px; font-weight:700}
+.sheet .rs{position:absolute; inset:0; pointer-events:none; opacity:0; display:flex; align-items:center; justify-content:center; background:rgba(229,72,77,.10); border-radius:10px; border-left:5px solid #E5484D; border-right:5px solid #E5484D}
+.sheet .rs b{background:#E5484D; color:#fff; padding:6px 14px; border-radius:999px; font-size:15px}
+.sheet .rs.show{animation:rsflash 2.2s ease-out}
+@keyframes rsflash{0%{opacity:0}8%{opacity:1}70%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.sheet .rs.show{animation:none; opacity:1}}
   .vseg{margin:10px 0 0; width:fit-content; max-width:100%}
 </style>
 
@@ -217,27 +225,27 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
         L('C4 C4 G4 G4 A4 A4 G4','Twin kle twin kle lit tle star'),
         L('F4 F4 E4 E4 D4 D4 C4','How I won der what you are')],
       tips:['Learn one line at a time','Play slowly first','Each note is one beat, except the last note of each line, which is two beats','Right hand fingers: C = 1, D = 2, E = 3, F = 4, G = 5, A = 5 (shift your hand)'],
-      variants:[{name:'Medium',meta:'14 lines · octave up',range:['C4', 'A5'],fid:'',
+      variants:[{name:'Medium',meta:'14 lines · sharps + key of G',range:['B3','G5'],fid:'',
       lines:[
         L('C4 E4 G4 C5 G4 E4 C4'),
-        L('C4 C4 G4 G4 A4 A4 G4','Twin kle twin kle lit tle star'),
-        L('F4 F4 E4 E4 D4 D4 C4','How I won der what you are'),
-        L('G4 G4 F4 F4 E4 E4 D4','Up a bove the world so high'),
-        L('G4 G4 F4 F4 E4 E4 D4','Like a dia mond in the sky'),
-        L('C4 C4 G4 G4 A4 A4 G4','Twin kle twin kle lit tle star'),
-        L('F4 F4 E4 E4 D4 D4 C4','How I won der what you are'),
-        L('C5 C5 G5 G5 A5 A5 G5','Twin kle twin kle lit tle star'),
-        L('F5 F5 E5 E5 D5 D5 C5','How I won der what you are'),
-        L('G5 G5 F5 F5 E5 E5 D5','Up a bove the world so high'),
-        L('G5 G5 F5 F5 E5 E5 D5','Like a dia mond in the sky'),
-        L('C5 C5 G5 G5 A5 A5 G5','Twin kle twin kle lit tle star'),
-        L('F5 F5 E5 E5 D5 D5 C5','How I won der what you are'),
-        L('C5 G4 E4 C4')],
-      tips:['Same tune as the easy version, with a warm-up and an ending added',
-        'Line 1 is a warm-up and line 14 is the ending: a broken C chord, C E G C',
-        'Lines 2 to 7 are the tune in the middle keys. Lines 8 to 13 are the same tune one octave higher (the arrow means one octave up)',
-        'Move your whole hand up for the high part, do not stretch',
-        'The last note of each tune line is the longest']}]},
+        L('C4 C4 G4 G4 G#4 A4 A4 G4','Twin kle twin kle  lit tle star'),
+        L('F4 F4 E4 E4 D4 D4 B3 C4','How I won der what  you are'),
+        L('G4 G4 F4 F4 E4 E4 D#4 D4','Up a bove the world  so high'),
+        L('G4 G4 F4 F4 E4 F4 E4 D4','Like a dia mond  in the sky'),
+        L('C4 C4 G4 G4 G#4 A4 A4 G4','Twin kle twin kle  lit tle star'),
+        L('F4 F4 E4 E4 D4 D4 B3 C4','How I won der what  you are'),
+        L('G4 G4 D5 D5 D#5 E5 E5 D5','Twin kle twin kle  lit tle star'),
+        L('C5 C5 B4 B4 A4 A4 F#4 G4','How I won der what  you are'),
+        L('D5 D5 C5 C5 B4 B4 A#4 A4','Up a bove the world  so high'),
+        L('D5 D5 C5 C5 B4 C5 B4 A4','Like a dia mond  in the sky'),
+        L('G4 G4 D5 D5 D#5 E5 E5 D5','Twin kle twin kle  lit tle star'),
+        L('C5 C5 B4 B4 A4 A4 F#4 G4','How I won der what  you are'),
+        L('G4 B4 D5 G5')],
+      tips:['Same tune as the easy version, but decorated: small lead-in notes (many are black keys) lead into the main notes. Those extra notes have no words under them',
+        'Lines 2 to 7 are the tune in C with the decorations. Lines 8 to 13 are the same tune moved up to the key of G (the arrow shows notes one octave up)',
+        'Line 1 is a C chord warm-up and line 14 is a G chord ending',
+        'G♯ and D♯ are black keys: G♯ is the black key between G and A, D♯ is between D and E. B3 is the white key just left of Middle C',
+        'Slide up a half step into the note: the lead-in is always one key below the note it leads to']}]},
     {id:'abc-song',name:'ABC Song',meta:'6 lines · starts on C',range:['C4','C5'],base:4,
       lines:[
         L('C4 C4 G4 G4 A4 A4 G4','A B C D E F G'),
@@ -247,20 +255,26 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
         L('C4 C4 G4 G4 A4 A4 G4','Now I know my A B Cs'),
         L('F4 F4 E4 E4 D4 D4 C4','Next time won\'t you sing with me')],
       tips:['Same tune as Twinkle Twinkle, so if you know that one you already know this','Line 2: LM and NO are sung quickly, two letters on one note','Line 3 ends on a longer note (hold the D)','Line 4: "double U" takes three notes (dou, ble, U)'],
-      variants:[{name:'Medium',meta:'9 lines · high ending',range:['C4', 'A5'],fid:'',
+      variants:[{name:'Medium',meta:'13 lines · sharps + key of D',range:['B3','D5'],fid:'',
       lines:[
-        L('C4 C4 G4 G4 A4 A4 G4','A B C D E F G'),
-        L('F4 F4 E4 E4 D4 D4 C4','H I J K LM NO P'),
-        L('G4 G4 F4 F4 E4 E4 D4','Q R S T U V (hold)'),
-        L('G4 G4 F4 F4 E4 E4 D4','dou ble U X Y and Z'),
-        L('C4 C4 G4 G4 A4 A4 G4','Now I know my A B Cs'),
-        L('F4 F4 E4 E4 D4 D4 C4','Next time won\'t you sing with me'),
-        L('C5 C5 G5 G5 A5 A5 G5','Now I know my A B Cs'),
-        L('F5 F5 E5 E5 D5 D5 C5','Next time won\'t you sing with me'),
-        L('C4 E4 G4 C5')],
-      tips:['Lines 1 to 6 are the easy version',
-        'Lines 7 and 8 sing the ending again one octave higher (the arrow means one octave up)',
-        'Line 9 is a short broken C chord to finish: C E G C']}]},
+        L('C4 C4 G4 G4 G#4 A4 A4 G4','A B C D  E F G'),
+        L('F4 F4 E4 E4 D4 D4 B3 C4','H I J K LM NO  P'),
+        L('G4 G4 F4 F4 E4 E4 D#4 D4','Q R S T U V  (hold)'),
+        L('G4 G4 F4 F4 E4 F4 E4 D4','dou ble U X Y  and Z'),
+        L('C4 C4 G4 G4 G#4 A4 A4 G4','Now I know my  A B Cs'),
+        L('F4 F4 E4 E4 D4 D4 B3 C4','Next time won\'t you sing with  me'),
+        L('D4 D4 A4 A4 A#4 B4 B4 A4','A B C D  E F G'),
+        L('G4 G4 F#4 F#4 E4 E4 C#4 D4','H I J K LM NO  P'),
+        L('A4 A4 G4 G4 F#4 F#4 F4 E4','Q R S T U V  (hold)'),
+        L('A4 A4 G4 G4 F#4 G4 F#4 E4','dou ble U X Y  and Z'),
+        L('D4 D4 A4 A4 A#4 B4 B4 A4','Now I know my  A B Cs'),
+        L('G4 G4 F#4 F#4 E4 E4 C#4 D4','Next time won\'t you sing with  me'),
+        L('D4 F#4 A4 D5')],
+      tips:['Lines 1 to 6 are the ABC tune with extra lead-in notes (words are blank under the extra notes)',
+        'Lines 7 to 12 repeat the tune moved up a whole step, in the key of D. That brings in F♯ and C♯ black keys',
+        'F♯ is the black key between F and G. C♯ is between C and D. G♯ and D♯ (earlier) are the black keys right of G and D',
+        'Line 13 is a short D chord to finish: D F♯ A D',
+        'B3 is the white key just left of Middle C']}]},
     {id:'fur-elise',name:'Für Elise (easy)',meta:'15 lines · right hand only',range:['C4','F5'],base:4,
       lines:[
         L('E5 D#5 E5 D#5 E5 B4 D5 C5 A4'),
@@ -311,16 +325,22 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
         L('G4 G4 G5 E5 C5 B4 A4','Hap py birth day dear na me'),
         L('F5 F5 E5 C5 D5 C5','Hap py birth day to you')],
       tips:['Start on the G just above Middle C','The high G is the next G up, 8 white keys higher','Long notes: the last note of each line, plus "you" and the name','Learn one line at a time, slowly'],
-      variants:[{name:'Medium',meta:'4 lines · key of F, one black key',range:['C4', 'C5'],fid:'',
+      variants:[{name:'Medium',meta:'9 lines · sharps + key of D',range:['G4','A5'],fid:'',
       lines:[
-        L('C4 C4 D4 C4 F4 E4','Hap py birth day to you'),
-        L('C4 C4 D4 C4 G4 F4','Hap py birth day to you'),
-        L('C4 C4 C5 A4 F4 E4 D4','Hap py birth day dear na me'),
-        L('A#4 A#4 A4 F4 G4 F4','Hap py birth day to you')],
-      tips:['Same song moved down so it starts on Middle C. Your hand sits lower and feels different',
-        'A♯ is the black key between A and B (it is the same key as B♭). It is used in line 4',
-        'The jump up in line 3 is a full octave: C to the next C',
-        'Long notes: the last note of each line']}]},
+        L('G4 G4 A4 G4 B4 C5 B4','Hap py birth day  to you'),
+        L('G4 G4 A4 G4 C#5 D5 C5','Hap py birth day  to you'),
+        L('G4 G4 G5 F#5 E5 C5 B4 A4','Hap py birth  day dear na me'),
+        L('F5 F5 E5 C5 D5 B4 C5','Hap py birth day to  you'),
+        L('A4 A4 B4 A4 C#5 D5 C#5','Hap py birth day  to you'),
+        L('A4 A4 B4 A4 D#5 E5 D5','Hap py birth day  to you'),
+        L('A4 A4 A5 G#5 F#5 D5 C#5 B4','Hap py birth  day dear na me'),
+        L('G5 G5 F#5 D5 E5 C#5 D5','Hap py birth day to  you'),
+        L('A4 D5 F#5 A5')],
+      tips:['Same song with decorations: small lead-in notes, a chromatic slide (G to F♯ to E) in line 3, and a lower note before the last "you"',
+        'Lines 5 to 8 play it again, moved up a whole step to the key of D. That brings in F♯ and C♯ black keys',
+        'Line 9 is a D chord to finish: A D F♯ A',
+        'The lead-in notes have no word under them',
+        'C♯5 and F♯5 are black keys: C♯ is between C and D, F♯ between F and G']}]},
     {id:'baby-shark',name:'Baby Shark',meta:'links only',range:['C4','C5'],base:4,lines:[],
       extra:'<section class="card"><h2>Notes are not written out here</h2><p>Baby Shark is a copyrighted song, so the notes are not copied into this page. These pages teach it note by note:</p><ul class="links"><li><a href="https://www.piano-keyboard-guide.com/piano-notes-for-pinkfong-baby-shark-song-easy-piano-tutorial/amp/">Piano Keyboard Guide: Baby Shark easy tutorial</a></li><li><a href="https://www.skoove.com/blog/piano-tutorial-baby-shark">Skoove: Baby Shark piano tutorial</a></li></ul></section>'},
     {id:'row-row-row',name:'Row, Row, Row Your Boat',meta:'4 lines · starts on C',range:['C4','C5'],base:4,
@@ -330,16 +350,21 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
         L('C5 C5 C5 G4 G4 G4 E4 E4 E4 C4 C4 C4','Mer ri ly mer ri ly mer ri ly mer ri ly'),
         L('G4 F4 E4 D4 C4','Life is but a dream')],
       tips:['Start on Middle C (finger 1)','The high C is the next C up, 8 white keys higher','Line 3 goes fast, with three quick notes per "merrily"','The other lines are slower and steadier','Line 4 walks down the keys one at a time'],
-      variants:[{name:'Medium',meta:'5 lines · starts on G',range:['G4', 'G5'],fid:'',
+      variants:[{name:'Medium',meta:'9 lines · sharps + key of D',range:['B3','D5'],fid:'',
       lines:[
-        L('G4 G4 G4 A4 B4','Row row row your boat'),
-        L('B4 A4 B4 C5 D5','Gent ly down the stream'),
-        L('G5 G5 G5 D5 D5 D5 B4 B4 B4 G4 G4 G4','Mer ri ly mer ri ly mer ri ly mer ri ly'),
-        L('D5 C5 B4 A4 G4','Life is but a dream'),
-        L('G4 B4 D5 G5')],
-      tips:['Same tune moved up to start on G. Your whole hand shifts to the right',
-        'Line 3 has the fast "merrily" notes, now starting on the high G',
-        'Line 5 is a broken G chord to finish: G B D G']}]},
+        L('C4 C4 C4 D4 D#4 E4','Row row row your  boat'),
+        L('E4 D4 E4 F4 F#4 G4','Gent ly down the  stream'),
+        L('C5 C5 C5 G4 G4 G4 E4 E4 E4 C4 C4 C4','Mer ri ly mer ri ly mer ri ly mer ri ly'),
+        L('G4 F4 E4 D4 B3 C4','Life is but a  dream'),
+        L('D4 D4 D4 E4 F4 F#4','Row row row your  boat'),
+        L('F#4 E4 F#4 G4 G#4 A4','Gent ly down the  stream'),
+        L('D5 D5 D5 A4 A4 A4 F#4 F#4 F#4 D4 D4 D4','Mer ri ly mer ri ly mer ri ly mer ri ly'),
+        L('A4 G4 F#4 E4 C#4 D4','Life is but a  dream'),
+        L('D4 F#4 A4 D5')],
+      tips:['Lines 1 to 4: the tune with black-key slides in lines 1 and 2 (D♯ and F♯) that climb up to the main note',
+        'Lines 5 to 8: the same tune moved up a whole step to the key of D (F♯ and C♯)',
+        'Line 9 is a D chord to finish: D F♯ A D',
+        'The slide notes have no word under them. B3 is the white key just left of Middle C']}]},
     {id:'ode-to-joy',name:'Ode to Joy',meta:'6 lines · starts on E',range:['G3','G4'],base:4,
       lines:[
         L('E4 E4 F4 G4 G4 F4 E4 D4'),
@@ -349,22 +374,23 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
         L('D4 D4 E4 C4 D4 E4 F4 E4 C4 D4 E4 F4 E4 D4 C4 D4 G3'),
         L('E4 E4 F4 G4 G4 F4 E4 D4 C4 C4 D4 E4 D4 C4 C4')],
       tips:['Start on E (finger 3)','Your right hand stays in one position: thumb on C, pinky on G','Most notes are one beat. Lines 2 and 4 end with a longer note, then a short note','The low G in line 5 is the G just below Middle C. Reach down with your pinky, or shift your hand','Learn it one line at a time, slowly'],
-      variants:[{name:'Medium',meta:'11 lines · octave up',range:['G3', 'G5'],fid:'',
+      variants:[{name:'Medium',meta:'11 lines · sharps + key of F',range:['G3','F5'],fid:'',
       lines:[
-        L('E4 E4 F4 G4 G4 F4 E4 D4'),
-        L('C4 C4 D4 E4 E4 D4 D4'),
-        L('E4 E4 F4 G4 G4 F4 E4 D4'),
-        L('C4 C4 D4 E4 D4 C4 C4'),
+        L('E4 E4 F4 G4 G4 F4 E4 D#4 D4'),
+        L('C4 C4 D4 E4 E4 D4 C#4 D4'),
+        L('E4 E4 F4 G4 G4 F4 E4 D#4 D4'),
+        L('C4 C4 D4 E4 D4 C4 B3 C4'),
         L('D4 D4 E4 C4 D4 E4 F4 E4 C4 D4 E4 F4 E4 D4 C4 D4 G3'),
-        L('E4 E4 F4 G4 G4 F4 E4 D4 C4 C4 D4 E4 D4 C4 C4'),
-        L('E5 E5 F5 G5 G5 F5 E5 D5'),
-        L('C5 C5 D5 E5 E5 D5 D5'),
-        L('E5 E5 F5 G5 G5 F5 E5 D5'),
-        L('C5 C5 D5 E5 D5 C5 C5'),
-        L('C5 G4 E4 C4')],
-      tips:['Lines 1 to 6 are the easy version',
-        'Lines 7 to 10 play the first half again one octave higher (the arrow means one octave up)',
-        'Line 11 walks down a C chord to finish: C G E C',
+        L('E4 E4 F4 G4 G4 F4 E4 D#4 D4 C4 C4 D4 E4 D4 C4 B3 C4'),
+        L('A4 A4 A#4 C5 C5 A#4 A4 G#4 G4'),
+        L('F4 F4 G4 A4 A4 G4 F#4 G4'),
+        L('A4 A4 A#4 C5 C5 A#4 A4 G#4 G4'),
+        L('F4 F4 G4 A4 G4 F4 E4 F4'),
+        L('F4 A4 C5 F5')],
+      tips:['Lines 1 to 6: the tune with black-key passing notes (D♯ and C♯) and a lower lead-in note (B3) before the last C',
+        'Lines 7 to 10: the first half again, moved up to the key of F. That brings in B♭ (the black key A♯ on the keyboard) and other black keys',
+        'Line 11 is an F chord to finish: F A C F',
+        'D♯ is between D and E. C♯ is between C and D. The notes slide down a half step at a time',
         'The low G in line 5 is the G just below Middle C']}]},
     {id:'mary-had-a-little-lamb',name:'Mary Had a Little Lamb',meta:'5 lines · starts on E',range:['C4','C5'],base:4,
       lines:[
@@ -374,22 +400,23 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
         L('E4 D4 C4 D4 E4 E4 E4 E4','Ma ry had a lit tle lamb its'),
         L('D4 D4 E4 D4 C4','fleece was white as snow')],
       tips:['Start on E (finger 3), with your hand in the same position as Twinkle','Lines 2 and 3 are short, so repeat each note steadily','The last note, C, is the longest'],
-      variants:[{name:'Medium',meta:'11 lines · octave up',range:['C4', 'G5'],fid:'',
+      variants:[{name:'Medium',meta:'11 lines · sharps + key of D',range:['B3','D5'],fid:'',
       lines:[
-        L('E4 D4 C4 D4 E4 E4 E4','Ma ry had a lit tle lamb'),
-        L('D4 D4 D4','Lit tle lamb'),
-        L('E4 G4 G4','Lit tle lamb'),
-        L('E4 D4 C4 D4 E4 E4 E4 E4','Ma ry had a lit tle lamb its'),
-        L('D4 D4 E4 D4 C4','fleece was white as snow'),
-        L('E5 D5 C5 D5 E5 E5 E5','Ma ry had a lit tle lamb'),
-        L('D5 D5 D5','Lit tle lamb'),
-        L('E5 G5 G5','Lit tle lamb'),
-        L('E5 D5 C5 D5 E5 E5 E5 E5','Ma ry had a lit tle lamb its'),
-        L('D5 D5 E5 D5 C5','fleece was white as snow'),
-        L('C5 G4 E4 C4','the end')],
-      tips:['Lines 1 to 5 are the easy version',
-        'Lines 6 to 10 play it again one octave higher (the arrow means one octave up)',
-        'Line 11 is a short C chord to finish, from high to low: C G E C']}]},
+        L('E4 D4 C4 D4 D#4 E4 E4 E4','Ma ry had a  lit tle lamb'),
+        L('C#4 D4 D4 D4',' Lit tle lamb'),
+        L('E4 F#4 G4 G4','Lit  tle lamb'),
+        L('E4 D4 C4 D4 D#4 E4 E4 E4 E4','Ma ry had a  lit tle lamb its'),
+        L('D4 D4 E4 D4 B3 C4','fleece was white as  snow'),
+        L('F#4 E4 D4 E4 F4 F#4 F#4 F#4','Ma ry had a  lit tle lamb'),
+        L('D#4 E4 E4 E4',' Lit tle lamb'),
+        L('F#4 G#4 A4 A4','Lit  tle lamb'),
+        L('F#4 E4 D4 E4 F4 F#4 F#4 F#4 F#4','Ma ry had a  lit tle lamb its'),
+        L('E4 E4 F#4 E4 C#4 D4','fleece was white as  snow'),
+        L('D4 F#4 A4 D5')],
+      tips:['Lines 1 to 5: the tune with small black-key slides (D♯, C♯, F♯) into the main notes. They have no word under them',
+        'Lines 6 to 10: the same tune moved up a whole step, in the key of D',
+        'Line 11 is a D chord to finish: D F♯ A D',
+        'D♯ is the black key between D and E. C♯ is between C and D. F♯ is between F and G']}]},
     {tab:'h',id:'hare-krishna-b1-1',name:'Hare Kṛṣṇa Mahā-mantra (1st)',meta:'Book B1.1 · 5 lines',range:['B3','G4'],base:4,
       lines:[
         L('D4 E4 F4 F4 E4 D4 E4 E4','ha re kṛṣ ṇa ha re kṛṣ ṇa'),
@@ -536,7 +563,7 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
     var s=cur;
     if(!s.lines.length||li==null||ni==null){ sheetEl.hidden=true; return; }
     sheetEl.hidden=false;
-    if(!shF){ sheetEl.innerHTML='<div class="sh-fixed"></div><div class="sh-scroll"></div>'; shF=sheetEl.children[0]; shS=sheetEl.children[1]; }
+    if(!shF){ sheetEl.innerHTML='<div class="sh-fixed"></div><div class="sh-scroll"></div><div class="rs" aria-hidden="true"><b>↻ Restarting</b></div>'; shF=sheetEl.children[0]; shS=sheetEl.children[1]; rsEl=sheetEl.children[2]; }
     var ln=s.lines[li], len=ln.n.length, k, j, st, x, y;
     /* fixed left part: clef + permanent letters for every line and space */
     var wl=sLab?136:72, f='<svg width="'+wl+'" height="'+SH+'" viewBox="0 0 '+wl+' '+SH+'" aria-hidden="true">'+staffLines(wl);
@@ -552,7 +579,7 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
     f+='</svg>';
     shF.innerHTML=f;
     /* scrolling notes */
-    var ws=Math.max(20+len*GAP+10,shS.clientWidth||0), o='<svg width="'+ws+'" height="'+SH+'" viewBox="0 0 '+ws+' '+SH+'" role="img" aria-label="Sheet music, line '+(li+1)+'. The purple note is next.">'+staffLines(ws);
+    var lastLine=(li===s.lines.length-1), ws=Math.max(20+len*GAP+10+(lastLine?70:0),shS.clientWidth||0), o='<svg width="'+ws+'" height="'+SH+'" viewBox="0 0 '+ws+' '+SH+'" role="img" aria-label="Sheet music, line '+(li+1)+'. The purple note is next.">'+staffLines(ws);
     for(k=0;k<len;k++){
       var p=P(ln.n[k]); st=p.i-30; x=20+k*GAP+GAP/2; y=yOf(st);
       var isCur=(!finished&&k===ni), past=(k<ni)||finished;
@@ -567,6 +594,11 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
       o+='<text class="sl'+(p.L==='C'&&!p.sh?' isC':'')+'" x="'+x+'" y="'+(YB+90)+'" text-anchor="middle">'+p.N+'</text>';
       o+='<text class="sw" x="'+x+'" y="'+(YB+114)+'" text-anchor="middle">'+(ln.w[k]||'')+'</text>';
       o+='</g>';
+    }
+    if(lastLine){
+      var xe=20+len*GAP+14;
+      o+='<line class="endbar" x1="'+xe+'" x2="'+xe+'" y1="'+yOf(8)+'" y2="'+yOf(0)+'"/><line class="endbar" x1="'+(xe+6)+'" x2="'+(xe+6)+'" y1="'+yOf(8)+'" y2="'+yOf(0)+'"/>';
+      o+='<text class="endtx" x="'+(xe+3)+'" y="'+(yOf(8)-10)+'" text-anchor="middle">↻ restart</text>';
     }
     o+='</svg>';
     var key=s.id+':'+li, keep=shS.scrollLeft;
@@ -648,11 +680,18 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
     return best;
   }
 
+  var rsEl=null, rsT=null;
+  function flashRestart(){
+    if(!rsEl) return;
+    rsEl.classList.remove('show'); void rsEl.offsetWidth; rsEl.classList.add('show');
+    clearTimeout(rsT); rsT=setTimeout(function(){rsEl.classList.remove('show');},2200);
+    lastText='Song finished. Restarting from the beginning.';
+  }
   function advance(){
     var s=cur;
     if(ni<s.lines[li].n.length-1) ni++;
     else if(li<s.lines.length-1){li++; ni=0;}
-    else {li=0; ni=0;}
+    else {li=0; ni=0; flashRestart();}
   }
 
   function noteName(m){ return NAMES[((m%12)+12)%12]+(Math.floor(m/12)-1); }
@@ -745,7 +784,9 @@ h1{margin:0; font:700 26px/1.15 var(--font-display); text-wrap:balance}
   nextB.addEventListener('click',function(){step(1);});
   $('start').addEventListener('click',function(){
     if(!cur.lines.length) return;
+    var wasStarted=started;
     li=0; ni=0; finished=false; started=false;
+    if(wasStarted) flashRestart();
     if(!follow){follow=true; save('pn-follow','1');}
     paint();
   });
